@@ -1,11 +1,5 @@
-BRD
+Team Hangout
 
-1. Preface
-2. Summary of Problem and Total Solution
-3. Strategy
-4. SWOT
-5. Primary Market Research
-6. Secondary market Research
-7. Commercialization Strategy
-8. Monetization Strategy
-9. Appendix
+Trello Sprint Board: https://trello.com/b/vQxAUqNe/hangout-sprint-board
+
+Agantty Gantt Chart: https://app.agantty.com/sharing/08e6fd83757fa3f7971057d4a436a289
