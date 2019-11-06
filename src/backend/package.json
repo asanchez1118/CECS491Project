@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "mongodb": "^3.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+	"start": "node ./app.js",
+    "dev": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asanchez1118/CECS491Project.git"
+  },
+  "author": "Brandon Pitcher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asanchez1118/CECS491Project/issues"
+  },
+  "homepage": "https://github.com/asanchez1118/CECS491Project#readme",
+  "dependencies": {
+
+  }
+}

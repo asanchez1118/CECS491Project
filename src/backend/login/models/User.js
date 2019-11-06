@@ -22,10 +22,8 @@ const UserSchema = new Schema({
 	id: {
 		type int,
 		required true
-	}
+	},
 
-})
+});
 
-const User = mongoose.model('users',UserSchema, "users");
-
-module.exports = User;
+const User = module.exports = mongoose.model('User', UserSchema);
