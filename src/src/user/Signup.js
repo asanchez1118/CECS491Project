@@ -25,46 +25,60 @@ class Signup extends Component {
       password
     };
     //console.log(user);
-
-
-  render() {
-    const {name,email,password} = this.state
-    return (
-      <div className="container">
-        <h2 className="mt-5 mb-5">Signup</h2>
-
+  };
+    signupForm = (name, email, password) => (
         <form>
-          <div className="form-group">
-            <label className="text-muted">Name</label>
-            <input onChange={this.handleChange("name")}
-             type="text"
-             className="form-control"
-             value={name}
-             />
-          </div>
-          <div className="form-group">
-            <label className="text-muted">Email</label>
-            <input onChange={this.handleChange("email")}
-             type="email"
-             className="form-control"
-             value={email}
-             />
-          </div>
-          <div className="form-group">
-            <label className="text-muted">Password</label>
-            <input onChange={this.handleChange("password")}
-            type="password"
-            className="form-control"
-            value={password}
-            />
-          </div>
-          <button onClick={this.clickSubmit} className="bt.btn-raised.btn-primary">
-            Submit
-          </button>
+            <div className="form-group">
+                <label className="text-muted">Name</label>
+                <input
+                    onChange={this.handleChange("name")}
+                    type="text"
+                    className="form-control"
+                    value={name}
+                />
+            </div>
+            <div className="form-group">
+                <label className="text-muted">Email</label>
+                <input
+                    onChange={this.handleChange("email")}
+                    type="email"
+                    className="form-control"
+                    value={email}
+                />
+            </div>
+            <div className="form-group">
+                <label className="text-muted">Password</label>
+                <input
+                    onChange={this.handleChange("password")}
+                    type="password"
+                    className="form-control"
+                    value={password}
+                />
+            </div>
+
+            <button
+                onClick={this.clickSubmit}
+                className="btn btn-raised btn-primary"
+            >
+                Submit
+            </button>
         </form>
-      </div>
     );
+
+    render() {
+          const { name, email, password } = this.state;
+          return (
+              <div className="container">
+                  <h2 className="mt-5 mb-5">Signup</h2>
+
+                
+
+
+
+                  {this.signupForm(name, email, password)}
+              </div>
+          );
+      }
   }
-}
 
 export default Signup;
