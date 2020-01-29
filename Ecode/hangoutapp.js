@@ -26,6 +26,6 @@ app.use(bodyParser.json());
 app.use(expressValidator());
 app.use("/", postRoutes);
 app.use("/", authRoutes);
-const port = process.env.PORT || 1000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {console.log(`API listening on port: ${port}`);
 });
