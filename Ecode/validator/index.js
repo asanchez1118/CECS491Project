@@ -14,6 +14,7 @@ exports.createPostValidator = (req, res, next) => {
         const firstError = errors.map((error) => error.msg)[0];
         return res.status(400).json({error: firstError});
     }
+    //Starts next middleware application
     next();
 };
 
@@ -45,7 +46,7 @@ exports.userSignupValidator = (req, res, next) => {
     // proceed to next middleware
     next();
 };
-
+/*
 exports.userSigninValidator = (request, response, next) => {
     request
         .check('email', 'Email must be between 3 to 32 characters')
@@ -69,3 +70,4 @@ exports.userSigninValidator = (request, response, next) => {
     }
     next();
 };
+*/

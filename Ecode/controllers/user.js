@@ -44,7 +44,7 @@ exports.allUsers = (req, res) => {
             });
         }
         res.json(users);
-    }).select('name email updated created role');
+    }).select('name email updated created');
 };
 
 exports.getUser = (req, res) => {
@@ -53,22 +53,22 @@ exports.getUser = (req, res) => {
     return res.json(req.profile);
 };
 
-// exports.updateUser = (req, res, next) => {
-//     let user = req.profile;
-//     user = _.extend(user, req.body); // extend - mutate the source object
-//     user.updated = Date.now();
-//     user.save(err => {
-//         if (err) {
-//             return res.status(400).json({
-//                 error: "You are not authorized to perform this action"
-//             });
-//         }
-//         user.hashed_password = undefined;
-//         user.salt = undefined;
-//         res.json({ user });
-//     });
-// };
-/*
+ exports.updateUser = (req, res, next) => {
+     let user = req.profile;
+     user = _.extend(user, req.body); // extend - mutate the source object
+     user.updated = Date.now();
+     user.save(err => {
+         if (err) {
+             return res.status(400).json({
+                 error: "You are not authorized to perform this action"
+             });
+         }
+         user.hashed_password = undefined;
+         user.salt = undefined;
+         res.json({ user });
+     });
+ };
+
 exports.updateUser = (req, res, next) => {
     //let form = new formidable.IncomingForm();
     // console.log("incoming form data: ", form);
@@ -105,7 +105,7 @@ exports.updateUser = (req, res, next) => {
         });
     });
 };
-*/
+
 exports.userPhoto = (req, res, next) => {
     if (req.profile.photo.data) {
         res.set(('Content-Type', req.profile.photo.contentType));
