@@ -7,10 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon hangoutapp.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/asanchez1118/CECS491Project.git"
-  },
+  
   "author": "Team Hangout",
   "license": "ISC",
   "bugs": {
