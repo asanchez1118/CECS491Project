@@ -58,6 +58,6 @@ app.use(function(err, req, res, next) {
     }
 });
 
-const port = process.env.PORT || 1000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {console.log(`Node.js API listening on port: ${port}`);
 });
