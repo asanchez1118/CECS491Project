@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {Redirect } from "react-router-dom";
-//import { signin, authenticate } from "../auth";
+import { Redirect } from "react-router-dom";
+import { signin, authenticate } from "../auth";
 
 class Signin extends Component {
   constructor() {
@@ -28,7 +28,7 @@ class Signin extends Component {
         password
     };
     console.log(user);
-  /*
+
     signin(user).then(data => {
       if (data.error){
           this.setState({ error: data.error, loading: false})
@@ -37,7 +37,7 @@ class Signin extends Component {
           this.setState({ redirectToReferer: true });
         });
       }
-    }); */
+    });
 };
 
 signinForm = (email, password) => (
@@ -71,12 +71,15 @@ signinForm = (email, password) => (
 );
 
 render() {
-    const {email,password, error} = this.state;
+    const {email,password, error, redirectToReferer, loading } = this.state;
+
+    if(redirectToReferer) {
+      return <Redirect to="/" />
+   }
 
     return (
         <div className="container">
-            <h2 className="mt-5 mb-5">SignIn</h2>
-
+            <h2 className="mt-5 mb-5">Sign In</h2>
             <div
                 className="alert alert-danger"
                 style={{ display: error ? "" : "none" }}
@@ -84,8 +87,15 @@ render() {
                 {error}
             </div>
 
-            {this.signinForm(email, password)}
+            {loading ? (
+               <div className="jumbotron text-center">
+                     <h2>Loading...</h2>
+               </div>
+            ) : (
+               ""
+            )}
 
+            {this.signinForm(email, password)}
         </div>
     );
   }

@@ -10,11 +10,11 @@ export const signup = user => {
  .then(response => {
    return response.json()
  })
- .catch(err => console.log(err));
+ .catch(error => console.log(error));
 };
 
 export const signin = user => {
- return fetch(`${process.env.REACT_APP_API_URL}/signup`, {
+ return fetch(`${process.env.REACT_APP_API_URL}/signin`, {
    method: "POST",
    headers: {
      Accept: "application/json",

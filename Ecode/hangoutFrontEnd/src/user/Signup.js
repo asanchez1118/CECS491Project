@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-//import {signup} from "../auth";
+import {signup} from "../auth";
+import { Link } from "react-router-dom";
 
 class Signup extends Component {
   constructor() {
@@ -28,35 +29,19 @@ class Signup extends Component {
     };
 
     console.log(user);
-    this.signup(user)
-    .then(data => {
-      if(data.error) this.setState({error: data.error})
+    signup(user).then(data =>
+    {
+         if(data.error) this.setState({error: data.error});
          else
-            this.setState({
-               error: "",
-               name: "",
-               email: "",
-               password: "",
-               open: true
-            });
-   });
+               this.setState({
+                  error: "",
+                  name: "",
+                  email: "",
+                  password: "",
+                  open: true
+               });
+    });
 };
-
-    signup = user => {
-       return fetch("http://localhost:1000/signup", {
-        method: "POST",
-        headers: {
-           Accept: "application/json",
-           "Content-Type": "application/json"
-        },
-        body: JSON.stringify(user)
-     })
-     .then(response => {
-        return response.json()
-     })
-     .catch(err => console.log(err))
-
-    };
 
     signupForm = (name, email, password) => (
         <form>
