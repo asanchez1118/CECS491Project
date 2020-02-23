@@ -43,6 +43,11 @@ const Menu = ({history}) => (
           Sign Out
       </a>
       </li>
+      <>
+      <li className="nav-item">
+        <Link className="nav-link" style={isActive(history, "/feed")} to="/feed">Feed</Link>
+      </li>
+      </>
     )}
   </ul>
   </div>
