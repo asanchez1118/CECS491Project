@@ -1,5 +1,7 @@
+
+/*this is a new comment*/
 import React, { Component } from "react";
-import {signup} from "../auth";
+import { signup } from "../auth";
 import { Link } from "react-router-dom";
 
 class Signup extends Component {
@@ -43,7 +45,7 @@ class Signup extends Component {
     });
 };
 
-    signupForm = (name, email, password) => (
+ signupForm = (name, email, password) => (
         <form>
             <div className="form-group">
                 <label className="text-muted">Name</label>
@@ -85,6 +87,10 @@ class Signup extends Component {
     render() {
           const { name, email, password, error, open } = this.state;
           return (
+             <div className="jumbotron">
+                 <h2>Home</h2>
+                 <p className="lead">Welcome to Hangout Homepage</p>
+
               <div className="container">
                   <h2 className="mt-5 mb-5">Sign Up</h2>
 
@@ -99,8 +105,8 @@ class Signup extends Component {
                   >
                      New account is successfully created. Please Sign In.
                   </div>
-
                   {this.signupForm(name, email, password)}
+              </div>
               </div>
           );
       }
