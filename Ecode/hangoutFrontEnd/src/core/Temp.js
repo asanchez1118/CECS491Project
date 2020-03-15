@@ -6,4 +6,25 @@ module.exports = {
   a: a,
   b: b,
   c: c
-}
+};
+
+/*
+
+const username = client.feed('actor', 'name');
+
+await username.addActivity({
+  actor: 'name',
+  verb: 'add',
+  object: 'image',
+  foreign_id: 'id',
+  caption: 'message'
+});
+
+const another = client.feed('timeline', 'name');
+await another.follow('actor', 'name');
+
+const combfeeds = await another.get({ limit: 20 });
+
+await username.removeActivity({ foreignId: 'id' });
+
+*/
