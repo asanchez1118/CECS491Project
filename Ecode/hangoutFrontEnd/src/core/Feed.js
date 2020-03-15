@@ -1,18 +1,17 @@
 import React from 'react';
-import { StreamApp } from 'react-activity-feed';
+import { StreamApp, NotificationDropdown, FlatFeed, LikeButton, Activity, CommentList, CommentField, StatusUpdateForm } from 'react-activity-feed';
 import 'react-activity-feed/dist/index.css';
+
+var foo = require('./Temp')
 
 class Feed extends React.Component {
   render() {
     return(
       <StreamApp
-        apiKey = ""
-        appId = ""
-        token = "">
-        (/*)
-        let client = stream.connect('apiKey', 'apiKeySecret');
-        let userToken = client.createUserToken("user-one");
-        (*/)
+        apiKey = {temp.a}
+        appId = {temp.b}
+        token = {temp.c}
+      >
         <NotificationDropdown notify />
         <StatusUpdateForm
           feedGroup = "timeline"
@@ -40,25 +39,3 @@ class Feed extends React.Component {
 }
 
 export default Feed;
-
-(/*)
-let client = stream.connect('apiKey', 'token');
-let feed = client.feed('timeline', 'user-one');
-feed.addActivity({
-  'actor': client.user('user-one').ref(),
-  'verb': 'post',
-  'object': 'A great picture!',
-  'attachments': {
-    'og': {
-      'title': '',
-      'description': '',
-      'url': '',
-      'images': [
-        {
-          'image': ''
-        }
-      ]
-    }
-  }
-})
-(*/)
