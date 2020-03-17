@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from 'react-responsive-menubar/lib/NavBar';
 import { Link, withRouter } from "react-router-dom";
 import { signout, isAuthenticated } from '../auth';
 
