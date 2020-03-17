@@ -1,0 +1,13 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+heading {
+  font-weight: 700;
+}
+subheading {
+  font-weight: 500;
+}
+
+h2.headertext {
+  text-align: center;
+}

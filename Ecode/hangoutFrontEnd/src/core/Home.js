@@ -1,10 +1,13 @@
 import React from 'react'
+import csulb from '../assets/csulb.jpg'
 
 const Home = () => (
-  <div className="jumbotron">
-    <h2>Home</h2>
-    <p className="lead">Welcome to Hangout Homepage</p>
-  </div>
+  <img src={csulb} alt="CSULB" width="1918px" resizeMode="contain"/>
+
+  // <div>
+  //   <h2>Home</h2>
+  //   <p className="lead">Welcome to Hangout Homepage</p>
+  // </div>
 
 );
 

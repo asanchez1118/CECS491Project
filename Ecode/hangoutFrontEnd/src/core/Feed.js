@@ -8,10 +8,11 @@ class Feed extends React.Component {
   render() {
     return(
       <StreamApp
-        apiKey = {temp.a}
-        appId = {temp.b}
-        token = {temp.c}
+        // apiKey = {temp.a}
+        // appId = {temp.b}
+        // token = {temp.c}
       >
+      <React.fragment>
         <NotificationDropdown notify />
         <StatusUpdateForm
           feedGroup = "timeline"
@@ -33,6 +34,7 @@ class Feed extends React.Component {
             />
           }
         />
+      </React.fragment>
       </StreamApp>
     );
   }

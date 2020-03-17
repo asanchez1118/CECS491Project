@@ -75,7 +75,7 @@ render() {
 
     return (
         <div className="container">
-            <h2 className="mt-5 mb-5">SignIn</h2>
+            <h2 className="mt-5 mb-5">Sign In</h2>
 
             <div
                 className="alert alert-danger"

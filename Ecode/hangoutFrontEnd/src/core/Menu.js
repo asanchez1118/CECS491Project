@@ -1,19 +1,18 @@
 import React from "react";
+import NavBar from 'react-responsive-menubar/lib/NavBar';
 import { Link, withRouter } from "react-router-dom";
 import { signout, isAuthenticated } from '../auth';
 
 const isActive = (history, path) => {
-  if(history.location.pathname === path ) return  { color: "#ff9900" };
-  else return { color: "#ffffff" };
+  if(history.location.pathname === path ) return  { color: "#26335E" };
+  else return { color: "#8490b5" };
 };
-
-
 
 const Menu = ({history}) => (
   <div>
-  <ul className="nav nav-tabs bg-dark">
+  <ul className="nav nav-tabs bg-white">
     <li className="nav-item">
-      <Link className="nav-link" style={isActive(history, "/")} to="/">Home</Link>
+      <Link className="nav-link" style={isActive(history, "/")} to="/">Hangout</Link>
     </li>
 
     {!isAuthenticated() && (
@@ -25,7 +24,7 @@ const Menu = ({history}) => (
       <Link className="nav-link" style={isActive(history, "/signup")} to="/signup">Sign Up</Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" style={isActive(history, "/")} to="/events">Events</Link>
+        <Link className="nav-link" style={isActive(history, "/events")} to="/events">Events</Link>
       </li>
       </>
     )}
