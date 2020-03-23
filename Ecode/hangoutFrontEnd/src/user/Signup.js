@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-//import {signup} from "../auth";
+import {signup} from "../auth";
+import '../index.css';
 
 class Signup extends Component {
   constructor() {
@@ -91,6 +92,7 @@ class Signup extends Component {
             <button
                 onClick={this.clickSubmit}
                 className="btn btn-raised btn-primary"
+
             >
                 Submit
             </button>
