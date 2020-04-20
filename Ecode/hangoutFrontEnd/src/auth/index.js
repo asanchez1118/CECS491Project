@@ -29,6 +29,7 @@ export const signin = user => {
 };
 
 export const authenticate = (jwt, next) => {
+   //have to check if parsing undefined data first or else error will be thrown
     if (typeof window !== 'undefined') {
         localStorage.setItem('jwt', JSON.stringify(jwt));
         next();
@@ -60,7 +61,7 @@ export const isAuthenticated = () => {
         return false;
     }
 
-    if (localStorage.getItem('jwt')) {
+    if (localStorage.getItem('jwt') !== 'undefined') {
         return JSON.parse(localStorage.getItem('jwt'));
     } else {
         return false;

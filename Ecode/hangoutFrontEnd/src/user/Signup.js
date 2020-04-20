@@ -1,65 +1,87 @@
 import React, { Component } from "react";
-import {signup} from "../auth";
-import '../index.css';
+import { signup } from "../auth";
+import { Link } from "react-router-dom";
+import SocialLogin from "./SocialLogin";
 
 class Signup extends Component {
-  constructor() {
-    super()
-    this.state = {
-      name: "",
-      email: "",
-      password: "",
-      error: "",
-      open: false
-   };
-  }
+    constructor() {
+        super();
+        this.state = {
+            name: "",
+            email: "",
+            password: "",
+            error: "",
+            open: false,
+            recaptcha: false
+        };
+    }
 
-  handleChange = (name) => (event) => {
-    this.setState({  error: "" });
-    this.setState({[name]: event.target.value});
-  };
-
-  clickSubmit = event => {
-    event.preventDefault();
-    const {name, email, password} = this.state;
-    const user = {
-      name,
-      email,
-      password
+    handleChange = name => event => {
+        this.setState({ error: "" });
+        this.setState({ [name]: event.target.value });
     };
 
-    console.log(user);
-    this.signup(user)
-    .then(data => {
-      if(data.error) this.setState({error: data.error})
-         else
+    recaptchaHandler = e => {
+        this.setState({ error: "" });
+        let userDay = e.target.value.toLowerCase();
+        let dayCount;
+
+        if (userDay === "sunday") {
+            dayCount = 0;
+        } else if (userDay === "monday") {
+            dayCount = 1;
+        } else if (userDay === "tuesday") {
+            dayCount = 2;
+        } else if (userDay === "wednesday") {
+            dayCount = 3;
+        } else if (userDay === "thursday") {
+            dayCount = 4;
+        } else if (userDay === "friday") {
+            dayCount = 5;
+        } else if (userDay === "saturday") {
+            dayCount = 6;
+        }
+
+        if (dayCount === new Date().getDay()) {
+            this.setState({ recaptcha: true });
+            return true;
+        } else {
             this.setState({
-               error: "",
-               name: "",
-               email: "",
-               password: "",
-               open: true
+                recaptcha: false
             });
-   });
-};
-
-    signup = user => {
-       return fetch("http://localhost:1000/signup", {
-        method: "POST",
-        headers: {
-           Accept: "application/json",
-           "Content-Type": "application/json"
-        },
-        body: JSON.stringify(user)
-     })
-     .then(response => {
-        return response.json()
-     })
-     .catch(err => console.log(err))
-
+            return false;
+        }
     };
 
-    signupForm = (name, email, password) => (
+    clickSubmit = event => {
+        event.preventDefault();
+        const { name, email, password } = this.state;
+        const user = {
+            name,
+            email,
+            password
+        };
+        // console.log(user);
+        if (this.state.recaptcha) {
+            signup(user).then(data => {
+                if (data.error) this.setState({ error: data.error });
+                else
+                    this.setState({
+                        error: "",
+                        name: "",
+                        email: "",
+                        password: "",
+                        open: true
+                    });
+            });
+        } else {
+            this.setState({
+                error: "What day is today? Please write a correct answer!"
+            });
+        }
+    };
+
+    signupForm = (name, email, password, recaptcha) => (
         <form>
             <div className="form-group">
                 <label className="text-muted">Name</label>
@@ -89,10 +111,21 @@ class Signup extends Component {
                 />
             </div>
 
+            <div className="form-group">
+                <label className="text-muted">
+                    {recaptcha ? "Thanks. You got it!" : "What day is today?"}
+                </label>
+
+                <input
+                    onChange={this.recaptchaHandler}
+                    type="text"
+                    className="form-control"
+                />
+            </div>
+
             <button
                 onClick={this.clickSubmit}
                 className="btn btn-raised btn-primary"
-
             >
                 Submit
             </button>
@@ -100,27 +133,36 @@ class Signup extends Component {
     );
 
     render() {
-          const { name, email, password, error, open } = this.state;
-          return (
-              <div className="container">
-                  <h2 className="mt-5 mb-5">Sign Up</h2>
+        const { name, email, password, error, open, recaptcha } = this.state;
+        return (
+            <div className="container">
+                <h2 className="mt-5 mb-5">Signup</h2>
 
-                  <div className="alert alert-primary"
-                     style={{display: error ? "" : "none" }}
-                  >
-                        {error}
-                  </div>
+                <hr />
+                <SocialLogin />
 
-                  <div className="alert alert-info"
-                       style={{display: open ? "" : "none"}}
-                  >
-                     New account is successfully created. Please Sign In.
-                  </div>
+                <hr />
+                <br />
 
-                  {this.signupForm(name, email, password)}
-              </div>
-          );
-      }
+                <div
+                    className="alert alert-danger"
+                    style={{ display: error ? "" : "none" }}
+                >
+                    {error}
+                </div>
+
+                <div
+                    className="alert alert-info"
+                    style={{ display: open ? "" : "none" }}
+                >
+                    New account is successfully created. Please{" "}
+                    <Link to="/signin">Sign In</Link>.
+                </div>
+
+                {this.signupForm(name, email, password, recaptcha)}
+            </div>
+        );
+    }
 }
 
 export default Signup;

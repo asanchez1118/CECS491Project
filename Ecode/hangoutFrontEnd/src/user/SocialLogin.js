@@ -18,16 +18,13 @@ class SocialLogin extends Component {
         };
 
         socialLogin(user).then(data => {
-            // console.log('signin data: ', data);
-            if (data.error) {
-                console.log('Error Login. Please try again..');
-            } else {
+            console.log('signin data: ', data);
                 // console.log('signin success - setting jwt: ', data);
                 authenticate(data, () => {
                     console.log('social login response from api', data);
                     this.setState({ redirectToReferrer: true });
                 });
-            }
+
         });
     };
 
