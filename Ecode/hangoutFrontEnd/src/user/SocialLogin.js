@@ -12,7 +12,6 @@ class SocialLogin extends Component {
     }
 
     responseGoogle = response => {
-        // console.log('response', response);
         const tokenId = response.tokenId;
         const user = {
             tokenId: tokenId

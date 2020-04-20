@@ -4,7 +4,7 @@ import Home from './core/Home';
 import Menu from './core/Menu';
 import Signup from './user/Signup';
 import Signin from './user/Signin';
-import Feed from './core/Feed';
+
 import Profile from './user/Profile';
 
 
@@ -16,7 +16,6 @@ const MainRouter = () => (
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/signin" component={Signin} />
       <Route exact path="/user/:userID" component={Profile} />
-      <Route exact path="/feed" component={Feed} />
     </Switch>
   </div>
 )
