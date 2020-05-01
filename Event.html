@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+	<div id="di" class="header">
+		<h2>Events I've Posted</h2>
+		<input type="text" id="inp" placeholder="Title">
+		<input type="date" id="inpu" placeholder="Date">
+		<!-- Features -->
+		<label for="fea">Tag:</label>
+		<select id="fea">
+		  <option value="one">Jogging</option>
+		  <option value="two">Water Polo</option>
+		  <option value="third">Swimming</option>
+		  <option value="fourth">Tennis</option>
+		  <option value="fifth">Volleyball</option>
+		  <option value="sixth">VS</option>
+		  <option value="seventh">MMO</option>
+		</select>
+		<span onclick="newEvent()" class="add">Add</span>
+	</div>
+
+<ul id="lu"> <!-- Debugging -->
+	<li>Water Polo at the Beach</li>
+	<li>Volleyball Training Match</li>
+	<li>LOL Farming</li>
+</ul>
+
+<script>
+	function newEvent() { <!-- When the add button is pressed... -->
+		var li = document.createElement("li");
+		var iv = document.getElementById("inp").value;
+		var t = document.createTextNode(iv);
+		li.appendChild(t);
+		if (iv == '') {
+			alert("Please write a title for your event.");
+		} else {
+			document.getElementById("lu").appendChild(li);
+		}
+		
+		var span = document.createElement("SPAN");
+		var txt = document.createTextNode("\u00D7");
+		span.className = "close";
+		span.appendChild(txt);
+		li.appendChild(span);
+		
+		var close = document.getElementsByClassName("close");
+		var i;
+		for (i = 0; i < close.length; i++) {
+			close[i].onclick = function() {
+				var div = this.parentElement;
+				div.style.display = "none";
+			}
+		}
+	} 
+</script>
+
+</body>
+</html>
