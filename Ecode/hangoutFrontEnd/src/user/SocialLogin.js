@@ -12,34 +12,23 @@ class SocialLogin extends Component {
     }
 
     responseGoogle = response => {
-<<<<<<< Updated upstream
-=======
         // console.log('response', response);
->>>>>>> Stashed changes
         const tokenId = response.tokenId;
         const user = {
             tokenId: tokenId
         };
 
         socialLogin(user).then(data => {
-<<<<<<< Updated upstream
-            console.log('signin data: ', data);
-=======
             // console.log('signin data: ', data);
             if (data.error) {
                 console.log('Error Login. Please try again..');
             } else {
->>>>>>> Stashed changes
                 // console.log('signin success - setting jwt: ', data);
                 authenticate(data, () => {
                     console.log('social login response from api', data);
                     this.setState({ redirectToReferrer: true });
                 });
-<<<<<<< Updated upstream
-
-=======
             }
->>>>>>> Stashed changes
         });
     };
 
