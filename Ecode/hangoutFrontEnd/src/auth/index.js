@@ -1,5 +1,4 @@
 export const signup = user => {
-<<<<<<< Updated upstream
     return fetch(`${process.env.REACT_APP_API_URL}/signup`, {
         method: 'POST',
         headers: {
@@ -27,35 +26,6 @@ export const signin = user => {
             return response.json();
         })
         .catch(err => console.log(err));
-=======
- return fetch("http://localhost:80/signup", {
-   method: "POST",
-   headers: {
-     Accept: "application/json",
-     "Content-Type": "application/json"
-   },
-   body: JSON.stringify(user)
- })
- .then(response => {
-   return response.json()
- })
- .catch(err => console.log(err));
-};
-
-export const signin = user => {
- return fetch("http://localhost:80/signin", {
-   method: "POST",
-   headers: {
-     Accept: "application/json",
-     "Content-Type": "application/json"
-   },
-   body: JSON.stringify(user)
- })
- .then(response => {
-   return response.json()
- })
- .catch(err => console.log(err));
->>>>>>> Stashed changes
 };
 
 export const authenticate = (jwt, next) => {
