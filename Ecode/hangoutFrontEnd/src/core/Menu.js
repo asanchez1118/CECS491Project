@@ -57,12 +57,9 @@ const Menu = ({ history }) => (
                             Find People
                         </Link>
                     </li>
-                    
+
                     <li className="nav-item">
-                        <Link
-                            className={history.location.pathname === '/users' ? 'active nav-link' : 'not-active nav-link'}
-                            to="/users"
-                        >
+                        <Link to={`/users`} style ={isActive(history, `/users`)} className ="nav-link">
                             Users
                         </Link>
                     </li>
