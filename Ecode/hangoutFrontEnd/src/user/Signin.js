@@ -88,19 +88,12 @@ class Signin extends Component {
 
         return (
             <div className="container">
-                <h2 className="mt-5 mb-5">SignIn</h2>
+                <h2 className="mt-5 mb-5">Sign In</h2>
                 <hr />
                 <SocialLogin />
 
                 <hr />
                 <br />
-
-                <div
-                    className="alert alert-danger"
-                    style={{ display: error ? "" : "none" }}
-                >
-                    {error}
-                </div>
 
                 {loading ? (
                     <div className="jumbotron text-center">
