@@ -74,7 +74,7 @@ exports.userSigninValidator = (request, response, next) => {
     }
     next();
 };
-<<<<<<< Updated upstream
+
 
 exports.passwordResetValidator = (req, res, next) => {
     // check for password
@@ -98,5 +98,3 @@ exports.passwordResetValidator = (req, res, next) => {
     // proceed to next middleware or ...
     next();
 };
-=======
->>>>>>> Stashed changes
