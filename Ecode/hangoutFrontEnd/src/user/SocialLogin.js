@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import GoogleLogin from 'react-google-login';
-import { socialLogin, authenticate } from '../auth';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import GoogleLogin from "react-google-login";
+import { socialLogin, authenticate } from "../auth";
+
 
 class SocialLogin extends Component {
     constructor() {
@@ -12,28 +13,29 @@ class SocialLogin extends Component {
     }
 
     responseGoogle = response => {
-        // console.log('response', response);
-        const tokenId = response.tokenId;
+        console.log(response);
+        const { googleId, name, email, imageUrl } = reponse.profileObj;
         const user = {
-            tokenId: tokenId
+            password: googleId,
+            name: name,
+            email: email, 
+            imageUrl: imageUrl
         };
-
         socialLogin(user).then(data => {
-            // console.log('signin data: ', data);
+            console.log("signin data: ", data);
             if (data.error) {
-                console.log('Error Login. Please try again..');
-            } else {
-                // console.log('signin success - setting jwt: ', data);
+                console.log("Error Login. Please try again.");
+            }
+            else {
+                console.log("signin successful - setting jwt: ", data);
                 authenticate(data, () => {
-                    console.log('social login response from api', data);
                     this.setState({ redirectToReferrer: true });
-                });
+                })
             }
         });
     };
 
     render() {
-        // redirect
         const { redirectToReferrer } = this.state;
         if (redirectToReferrer) {
             return <Redirect to="/" />;
@@ -41,7 +43,7 @@ class SocialLogin extends Component {
 
         return (
             <GoogleLogin
-                clientId="679380407525-2cvoah9gpsjjffc5k1p6atahhf2vqfl4.apps.googleusercontent.com"
+                clientID="313850488232-0v41ja1ucr85p6u7b94mthn0l6h5cpd5.apps.googleusercontent.com"
                 buttonText="Login with Google"
                 onSuccess={this.responseGoogle}
                 onFailure={this.responseGoogle}
@@ -49,5 +51,4 @@ class SocialLogin extends Component {
         );
     }
 }
-
 export default SocialLogin;
