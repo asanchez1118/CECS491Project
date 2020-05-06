@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React, { Component } from "react";
 import { isAuthenticated } from "../auth";
 import { Redirect, Link } from "react-router-dom";
@@ -7,6 +8,11 @@ import DeleteUser from "./DeleteUser";
 import FollowProfileButton from "./FollowProfileButton";
 import ProfileTabs from "./ProfileTabs";
 import { listByUser } from "../post/apiPost";
+=======
+import React, {Component} from "react";
+import {Redirect } from "react-router-dom";
+import { signin, authenticate } from "../auth";
+>>>>>>> Stashed changes
 
 class Profile extends Component {
   constructor() {

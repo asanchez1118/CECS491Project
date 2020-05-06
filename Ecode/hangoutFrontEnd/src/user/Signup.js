@@ -61,7 +61,11 @@ class Signup extends Component {
             email,
             password
         };
+<<<<<<< Updated upstream
        console.log(user);
+=======
+        // console.log(user);
+>>>>>>> Stashed changes
         if (this.state.recaptcha) {
             signup(user).then(data => {
                 if (data.error) this.setState({ error: data.error });
