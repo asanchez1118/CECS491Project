@@ -30,7 +30,6 @@ class Signin extends Component {
             password
         };
         // console.log(user);
-        if (this.state.recaptcha) {
             signin(user).then(data => {
                 if (data.error!== null && data.error) {
                     this.setState({ error: data.error, loading: false });
@@ -41,15 +40,9 @@ class Signin extends Component {
                     });
                 }
             });
-        } else {
-            this.setState({
-                loading: false,
-                error: "What day is today? Please write a correct answer!"
-            });
-        }
     };
 
-    signinForm = (email, password, recaptcha) => (
+    signinForm = (email, password) => (
         <form>
             <div className="form-group">
                 <label className="text-muted">Email</label>
@@ -86,8 +79,7 @@ class Signin extends Component {
             password,
             error,
             redirectToReferer,
-            loading,
-            recaptcha
+            loading
         } = this.state;
 
         if (redirectToReferer) {
@@ -118,7 +110,7 @@ class Signin extends Component {
                     ""
                 )}
 
-                {this.signinForm(email, password, recaptcha)}
+                {this.signinForm(email, password)}
 
                 <p>
                     <Link
