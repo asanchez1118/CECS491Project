@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth';
+import './Menu.css'
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) return { color: '#ff9900' };
@@ -9,25 +10,10 @@ const isActive = (history, path) => {
 
 const Menu = ({ history }) => (
     <div>
-        <ul className="nav nav-tabs bg-primary">
+        <ul className="nav nav-tabs">
             <li className="nav-item">
                 <Link className="nav-link" style={isActive(history, '/')} to="/">
-                    Home
-                </Link>
-            </li>
-
-            <li className="nav-item">
-                <Link
-                    className={history.location.pathname === '/users' ? 'active nav-link' : 'not-active nav-link'}
-                    to="/users"
-                >
-                    Users
-                </Link>
-            </li>
-
-            <li className="nav-item">
-                <Link to={`/post/create`} style={isActive(history, `/post/create`)} className="nav-link">
-                    Create Post
+                    Hangout
                 </Link>
             </li>
 
@@ -69,6 +55,21 @@ const Menu = ({ history }) => (
                             className="nav-link"
                         >
                             {`${isAuthenticated().user.name}'s profile`}
+                        </Link>
+                    </li>
+
+                    <li className="nav-item">
+                        <Link
+                            className={history.location.pathname === '/users' ? 'active nav-link' : 'not-active nav-link'}
+                            to="/users"
+                        >
+                            Users
+                        </Link>
+                    </li>
+
+                    <li className="nav-item">
+                        <Link to={`/post/create`} style={isActive(history, `/post/create`)} className="nav-link">
+                            Create Post
                         </Link>
                     </li>
 

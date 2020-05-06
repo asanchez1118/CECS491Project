@@ -61,7 +61,7 @@ class Signup extends Component {
             email,
             password
         };
-        // console.log(user);
+       console.log(user);
         if (this.state.recaptcha) {
             signup(user).then(data => {
                 if (data.error) this.setState({ error: data.error });
